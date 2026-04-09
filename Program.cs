@@ -1,6 +1,7 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using SQL_Server_MCP.Services;
 using System.Threading.Tasks;
 
 namespace SQL_Server_MCP
@@ -14,6 +15,9 @@ namespace SQL_Server_MCP
             {
                 consoleLogOptions.LogToStandardErrorThreshold = LogLevel.Trace;
             });
+
+            builder.Services.AddSingleton<ConnectionService>();
+            builder.Services.AddSingleton<QueryExecutor>();
 
             builder.Services
                 .AddMcpServer()
