@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "SQL-Server-MCP": {
+      "commandName": "Project"
+    },
+    "Container (Dockerfile)": {
+      "commandName": "Docker"
+    }
+  }
+}
