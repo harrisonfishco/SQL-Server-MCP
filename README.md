@@ -106,7 +106,15 @@ bin/Release/net8.0/SQL-Server-MCP.exe        # Windows
 bin/Release/net8.0/SQL-Server-MCP            # Linux / macOS
 ```
 
-### Docker
+### Docker Hub
+
+The easiest way to get started — no build required:
+
+```bash
+docker pull harrisonfishco/sql-server-mcp
+```
+
+### Build from Docker
 
 ```bash
 docker build -t sql-server-mcp .
@@ -165,14 +173,14 @@ Add the server to your `claude_desktop_config.json`:
 
 Restart Claude Desktop after saving.
 
-### Docker variant
+### Docker Hub variant
 
 ```json
 {
   "mcpServers": {
     "sql-server": {
       "command": "docker",
-      "args": ["run", "--rm", "-i", "sql-server-mcp"],
+      "args": ["run", "--rm", "-i", "harrisonfishco/sql-server-mcp"],
       "env": {
         "SQL_SERVER_MCP_CONNECTION_STRING": "Server=host.docker.internal;Database=mydb;User Id=sa;Password=secret;TrustServerCertificate=true;"
       }
@@ -185,6 +193,14 @@ Restart Claude Desktop after saving.
 
 ## Claude Code Setup
 
+**From Docker Hub:**
+```bash
+claude mcp add sql-server \
+  -e SQL_SERVER_MCP_CONNECTION_STRING="Server=myserver;Database=mydb;Integrated Security=true;" \
+  -- docker run --rm -i harrisonfishco/sql-server-mcp
+```
+
+**From binary:**
 ```bash
 claude mcp add sql-server \
   -e SQL_SERVER_MCP_CONNECTION_STRING="Server=myserver;Database=mydb;Integrated Security=true;" \
