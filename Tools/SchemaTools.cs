@@ -248,7 +248,7 @@ public sealed class SchemaTools(ConnectionService connectionService, QueryExecut
                     i.filter_definition,
                     STRING_AGG(
                         CASE WHEN ic.is_included_column = 0 THEN c.name ELSE NULL END,
-                        ', ') WITHIN GROUP (ORDER BY ic.key_ordinal)     AS key_columns,
+                        ', ') WITHIN GROUP (ORDER BY ic.index_column_id) AS key_columns,
                     STRING_AGG(
                         CASE WHEN ic.is_included_column = 1 THEN c.name ELSE NULL END,
                         ', ') WITHIN GROUP (ORDER BY ic.index_column_id) AS included_columns
