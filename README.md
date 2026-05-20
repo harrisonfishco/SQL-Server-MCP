@@ -95,7 +95,7 @@ Built with **.NET 8** and **Microsoft.Data.SqlClient**. Communicates over stdio 
 ### Build from source
 
 ```bash
-git clone https://github.com/your-username/SQL-Server-MCP.git
+git clone https://github.com/harrisonfishco/SQL-Server-MCP.git
 cd SQL-Server-MCP
 dotnet build -c Release
 ```
